@@ -1,4 +1,4 @@
-import ipad_pro_image from "~img/store-card-ipad-pro.jpg";
+import ipad_pro_image from "~img/store-card-ipad-pro.jpeg";
 // import "@/main.css";
 import styled from "styled-components";
 
@@ -16,19 +16,22 @@ const StyledProductContainer = styled.div`
   }
 `;
 
-function Product() {
+function Product({ image, title, detail, onProductClick }) {
   const imgStyle = {
     height: "auto",
     width: "100%",
     borderRadius: "0.5rem",
   };
-  // props.images = '12344'
   return (
-    <StyledProductContainer $scale={1.5} $transitionDuration="0.5s">
-      <img src={ipad_pro_image} alt="iPad Pro" style={imgStyle} />
+    <StyledProductContainer
+      $scale={1.5}
+      $transitionDuration="0.5s"
+      onClick={() => onProductClick(title)}
+    >
+      <img src={image} alt="iPad Pro" style={imgStyle} />
       <div className={styles.productTextContainer}>
-        <div className={styles["product-title"]}>iPad Pro</div>
-        <div className={styles.productDetail}>磅礴的薄 RMB 8999 起</div>
+        <div className={styles["product-title"]}>{title}</div>
+        <div className={styles.productDetail}>{detail}</div>
       </div>
     </StyledProductContainer>
   );

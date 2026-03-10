@@ -4,13 +4,14 @@
 // import "./App.css";
 import "@/main.css";
 import Product from "@components/Product.jsx";
+import { product } from "@/assets/data.js";
 
 function App() {
   // const [count, setCount] = useState(0)
-
+  const handleProductClick = (title) => alert(`Product ${title} clicked!`);
   return (
     <>
-      <Product />
+      <Product {...product} onProductClick={handleProductClick} />
       {/* <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
